@@ -1,0 +1,80 @@
+docker run
+docker run -v ${PWD}/newman:/app/newman sravanivallipalli31/gorestapitest:1.0
+docker run sravanivallipalli31/gorestapi:1.0
+===================
+jenkins temporary paswd
+b601cb74702048daaa94be7e1ff15698
+
+==========================================
+@echo off
+
+setlocal enabledelayedexpansion
+
+# Run Newman and generate report with timestamp
+
+set TIMESTAMP=%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
+
+set TIMESTAMP=%TIMESTAMP: =0%
+
+newman run C:\Users\YourUser\Documents\Jan2025_PostmanCollections\GoRestAPIWorkflow.json
+
+  -e C:\Users\YourUser\Documents\Jan2025_PostmanCollections\GoRestEnv.json
+
+  --verbose -r cli,htmlextra --reporter-htmlextra-export newman\report-%TIMESTAMP%.html
+
+# Wait to ensure the file is fully written
+
+timeout /t 10 /nobreak
+
+echo hello world
+
+# Find the latest report
+
+for /f "delims=" %%F in ('dir /b /o-d newman\report-*.html') do (
+
+  set LATEST_REPORT=%%F
+
+  goto :found
+
+)
+
+echo No report found!
+
+goto :cleanup
+
+:found
+
+echo Latest report: %LATEST_REPORT%
+
+# Rename the previous "NewmanReportLatest.html" to keep history
+
+if exist "newman\NewmanReportLatest.html" (
+
+  set TIMESTAMP=%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
+
+  set TIMESTAMP=%TIMESTAMP: =0%
+
+  move /y newman\NewmanReportLatest.html newman\NewmanReport_%TIMESTAMP%.html
+
+  echo Previous latest report renamed to: newman\NewmanReport_%TIMESTAMP%.html
+
+)
+
+# Copy the latest report to NewmanReportLatest.html
+
+copy /y "newman\%LATEST_REPORT%" newman\NewmanReportLatest.html
+
+echo Latest report copied to: newman\NewmanReportLatest.html
+
+:cleanup
+
+:: Cleanup: Keep only the last 5 reports
+
+for /f "skip=5 delims=" %%F in ('dir /b /o-d newman\report-*.html') do del "newman\%%F"
+
+for /f "skip=5 delims=" %%F in ('dir /b /o-d newman\NewmanReport_*.html') do del "newman\%%F"
+
+echo Old reports deleted, only the last 5 reports are kept.
+
+endlocal
+

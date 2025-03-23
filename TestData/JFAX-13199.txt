@@ -1,0 +1,42 @@
+
+Site dropdown, selected site tick mark icon is not coming in pink color, also the dropdown box is coming in yellow color ** ....FIXED  ----> issue still exists
+
+Add Patient
+
+Spravato withMe is not coming in single line in Patient Authorization tab in Add Patient - FIXED ----> issue still exists
+
+
+Patient List
+
+Please read full prescribing information... text is not coming in patient list - FIXED  ------> issue still exists, now we can see please read text but the background color is not matching either with uat or figma 
+
+Savings Enrollment
+No space is available above enroll patient in savings program header in Eligibility Question
+Enroll savings program > provider information, Patient Assignment of Benefits Consent  > more space is available above continue button ...FIXED  ----> for Patient Assignment of Benefits Consent unable to see step number in chevron
+Unable to enroll patient in spravato savings program...CHECK WITH ABHIMANYU
+
+Patient card 
+
+For Add Email modal, more space is available in between submit and cancel buttons and above header....FIXED  ---> issue still exists
+Case number is not coming in view case history in insurance coverage...CHECK WITH ABHIMANYU
+
+
+Dashboard 
+
+Please read the full prescribing... text in dashboard, no space present above 
+
+Need Help 
+
+Need help -> Help Center -> icons for user guide, frequently asked questions, contact us are coming in red color
+
+Add Patient
+
+Dropdown color for State, type etc is coming in yellow when it is selected...FIXED-----> issue still exists
+Select Add patient caregiver option then more space between Add Patient’s caregiver and patient’s caregiver information header ....FIXED-----> issue still exists
+Patient caregiver fields are not aligned properly...FIXED  -----> issue still exists
+Enter patient information and click on my account, then Are you sure you want to leave this page? Modal displayed, more space is available above continue button...FIXED -----> issue still exists
+
+My Account 
+
+When we click on any dropdown options in account management edit modal, then yellow color is coming for dropdown box (happening same at all places wherever dropdown is available...FIXED -----> issue still exists
+In staff management, divider line is coming in yellow color instead of grey...FIXED-----> issue still exists
